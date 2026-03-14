@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://d1trwj1sdk70a"]
+
+[ext_resource type="Theme" uid="uid://dsqbb1odj5g64" path="res://assets/new_theme.tres" id="1_sa3yf"]
+[ext_resource type="Script" uid="uid://p3faejmg0go6" path="res://scripts/menu_title_screen.gd" id="2_mgrm8"]
+[ext_resource type="Script" uid="uid://csrrcq0e2vyy2" path="res://scripts/button_plus_one.gd" id="3_mgrm8"]
+
+[node name="TitleScreen" type="Control" unique_id=1939880345]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=410174801]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.6, 1, 0.90666664, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1112802833]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 64.0
+offset_right = 1258.0
+offset_bottom = 223.0
+theme = ExtResource("1_sa3yf")
+theme_override_colors/font_color = Color(1, 0.35000002, 0.35000002, 1)
+text = "Olá Mundo"
+
+[node name="Menu" type="Panel" parent="." unique_id=1487159959]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -276.0
+offset_right = 250.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sa3yf")
+script = ExtResource("2_mgrm8")
+
+[node name="Jogar" type="Button" parent="Menu" unique_id=2065954686]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "Jogar"
+
+[node name="Sair" type="Button" parent="Menu" unique_id=307004934]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -24.5
+offset_right = 32.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sair"
+
+[node name="PlusOne" type="Button" parent="Menu" unique_id=531757195]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -49.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "+1"
+script = ExtResource("3_mgrm8")
+
+[connection signal="pressed" from="Menu/Jogar" to="Menu" method="_on_jogar_pressed"]
+[connection signal="button_down" from="Menu/Sair" to="Menu/Sair" method="_on_button_down"]
+[connection signal="pressed" from="Menu/Sair" to="Menu" method="_on_sair_pressed"]
+[connection signal="button_down" from="Menu/PlusOne" to="Menu/PlusOne" method="_on_button_down"]
